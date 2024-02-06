@@ -12,11 +12,11 @@ function Home({ user }) {
       </div>
 
       <div className="flex justify-center items-center">
-        <div className="p-40">
-          <h1 className="my-4">LogOut Panel</h1>
+        <div className="p-10">
+          <h1 className="my-4 text-2xl font-bold text-center">LogOut Panel</h1>
 
           <button
-            className="bg-slate-200 p-2 border rounded-xl"
+            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
             onClick={logOut}
           >
             Log Out
