@@ -1,0 +1,3 @@
+In the second module we start using Cloud Firestore which is a non sql db
+
+implemented crear pendiente that i takes the args from the form and inject it to our firestore db with the given method
