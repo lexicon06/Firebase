@@ -1,4 +1,7 @@
 import { initializeApp } from "firebase/app";
+import { getAuth } from 'firebase/auth'; //servicio de autenticación
+import { getFirestore } from 'firebase/firestore'; //servicio base de datos
+import { getStorage } from 'firebase/storage'; //servericio almacenamiento
 
 
 const firebaseConfig = {
@@ -11,6 +14,7 @@ const firebaseConfig = {
 };
 
 
-const firebaseApp = initializeApp(firebaseConfig);
+const firebaseApp = initializeApp(firebaseConfig);//initialize the app
+export const auth = getAuth(firebaseApp); //we call the method to use fireauth
 
 export default firebaseApp;
