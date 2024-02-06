@@ -9,7 +9,9 @@ export default async function loginWithEmailPassword(user, password) {
       console.log(usr);
     })
     .catch((e) => {
-      console.log(`Something went wrong fix: ${e}`);
+      if(e.code == "auth/invalid-credential"){
+        console.log("Invalid Credentials, wrong email/password");
+      }else console.log(`Something went wrong fix: ${e}`);
     })
     .finally(() => {
       console.log(`Promise done`);

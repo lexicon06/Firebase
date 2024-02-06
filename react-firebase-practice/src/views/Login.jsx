@@ -2,7 +2,7 @@ import React from "react";
 import logOut from "../functions/logout";
 import loginWithEmailPassword from "../functions/loginWithEmailPassword";
 import registerUser from "../functions/registerUser";
-
+import loginWithGoogle from "../functions/loginWithGoogle";
 
 function Login() {
   const [isLogginIn, setIsLoggingIn] = React.useState(false);
@@ -28,8 +28,8 @@ function Login() {
   return (
     <>
       <div className="w-screen h-screen flex justify-center items-center">
-        <div className="border border-slate-700 p-10 border rounded">
-          <h1 className="text-3xl font-bold">
+        <div className="border border-slate-700 p-10 border rounded-xl">
+          <h1 className="text-3xl font-bold mb-4">
             {isLogginIn ? "Inicia sesión" : "Regístrate"}
           </h1>
 
@@ -53,14 +53,17 @@ function Login() {
               {isLogginIn ? "Acceder" : "Regístrate"}
             </button>
           </form>
+         <div className="flex flex-col">
+         <button className="bg-green-500 text-white p-4 rounded font-semibold" onClick={loginWithGoogle}>Accede con Google</button>
           <button
-            className="underline"
+            className="underline mt-4"
             onClick={() => setIsLoggingIn(!isLogginIn)}
           >
             {isLogginIn
               ? "¿No tienes cuenta? Crea una"
               : "¿Ya tienes cuenta? Accede"}
           </button>
+         </div>
         </div>
       </div>
     </>
