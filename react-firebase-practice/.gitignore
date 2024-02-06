@@ -36,6 +36,7 @@ dist-ssr
 .runtimeconfig.json
 .firebase/
 
+
 ### react ###
 .DS_*
 *.log
