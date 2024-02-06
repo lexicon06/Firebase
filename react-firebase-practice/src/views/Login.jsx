@@ -14,15 +14,15 @@ function Login() {
 
     console.log(`used email ${email}`);
     console.log(`used password ${password}`);
-//to do check password length before using auth shouldn't be less than 6 characters
-    
+    //to do check password length before using auth shouldn't be less than 6 characters
+
     if (isLogginIn) {
       await loginWithEmailPassword(email, password);
     } else {
       await registerUser(email, password);
     }
 
-  
+
   }
 
   return (
