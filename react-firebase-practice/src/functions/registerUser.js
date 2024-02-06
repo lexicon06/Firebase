@@ -2,11 +2,16 @@ import { auth } from "../firebase/credenciales";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 export default async function registerUser(email, password) {
-    try {
-        const user = await createUserWithEmailAndPassword(auth, email, password);
-        console.log(user);
-    } catch (error) {
-        console.log(error);
-        return false;
-    }
+  await createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      const usr = userCredential.user;
+      console.log(`Account created Successfully using email,password`);
+      console.log(usr);
+    })
+    .catch((e) => {
+      console.log(`Something went wrong fix: ${e}`);
+    })
+    .finally(() => {
+      console.log(`Promise done`);
+    });
 }
