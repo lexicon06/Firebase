@@ -1,7 +1,7 @@
 import React from "react";
 import crearPendiente from "../functions/crearPendiente";
 
-function PendienteForm() {
+function PendienteForm({ refreshAllPendientes }) {
   async function submitHandler(e) {
     e.preventDefault();
     console.log("submit");
@@ -15,6 +15,8 @@ function PendienteForm() {
     e.target.priority.value = "";
     e.target.description.value = "";
     e.target.contact.value = "";
+
+    refreshAllPendientes();
   }
 
   return (

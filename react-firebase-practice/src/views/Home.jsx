@@ -1,14 +1,38 @@
-import React from "react";
+import React, { useEffect } from "react";
 import logOut from "../functions/logout";
 import Navbar from "../components/Navbar";
 import PendienteForm from "../components/PendienteForm";
+import getAllPendientes from "../functions/leerAllPendientes";
+import { setPersistence } from "firebase/auth";
+import PendienteCards from "../components/PendienteCards";
 
 function Home({ user }) {
+  const [AllPendiente, setAllPendientes] = React.useState(null);
+
+  function refreshAllPendientes(){
+    getAllPendientes()
+    .then(pendientes => {
+      setAllPendientes(pendientes);
+      console.log(AllPendiente);
+    })
+    .catch(err =>{
+      console.log(`Something went wrong ${e}`);
+    });
+  }
+
+  useEffect(()=>{
+    refreshAllPendientes()
+  }, []);
+
   return (
     <>
+        {AllPendiente != null &&
+          AllPendiente.map(pendiente => <PendienteCards pendiente={pendiente}/>)
+        }
+
       <div className="w-screen h-screen flex flex-col">
         <Navbar user={user} />
-        <PendienteForm />
+        <PendienteForm refreshAllPendientes={refreshAllPendientes} />
       </div>
 
       <div className="flex justify-center items-center">
