@@ -11,7 +11,7 @@ export default async function loginWithGoggle(){
         signInWithRedirect(auth, provider);
 
     }catch(error){
-
+        console.log(error);
     }
 
 }
