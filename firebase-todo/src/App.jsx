@@ -2,6 +2,7 @@ import React from 'react';
 import Login from './Views/Login';
 import "./App.css";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import logoutUser from './functions/logoutUser';
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
 
 <div className="title">
 <h4>Todo App With Firebase Login And FireStore - Welcome {signedIn ? "User":"Guest"}</h4>
+<button onClick={logoutUser}>Logout</button>
 </div>
 <Login/>
 

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import "./Login.css";
-import registerUser from "../functions/registerEP";
-import loginUserWithEmailAndPassword from "../functions/loginEP";
+import {FirebaseLogin, FirebaseRegister} from '../functions/loginActions';
 
 function Login() {
     const [isRegister, setIsRegister] = useState(true);
@@ -12,9 +11,10 @@ function Login() {
         const password = e.target.elements.password.value;
 
         if (isRegister) {
-            await registerUser(user, password);
+            await FirebaseRegister(user, password);
         } else {
-            await loginUserWithEmailAndPassword(user, password);
+           // await loginUserWithEmailAndPassword(user, password);
+           await FirebaseLogin(user,password);
         }
         e.target.reset();
     }
