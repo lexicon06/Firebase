@@ -35,7 +35,7 @@ function App() {
 
 <div className="title">
 <h4>Todo App With Firebase Login And FireStore - Welcome {signedIn ? userFirebase.email:"Guest"}</h4>
-{signedIn ? <img src={userFirebase.photoUrl} />:''}
+{signedIn ? <img src={userFirebase.photoURL} />:''}
 <button onClick={Firebase.Logout}>Logout</button>
 </div>
 {signedIn ? "Welcome ;D":<Login/>}
