@@ -7,7 +7,7 @@ import Firebase from './functions/loginActions';
 function App() {
 
 
-  const [signedIn, setAuthStatus] = React.useState(false);
+  const [userSignedIn, setUserAuthStatus] = React.useState(false);
   const [userFirebase, setUserInfo] = React.useState({});
 
   const auth = getAuth();
@@ -24,9 +24,9 @@ function App() {
 
       */
 
-      if(!signedIn) setAuthStatus(true);
+      if(!userSignedIn) setUserAuthStatus(true);
     } else {
-      setAuthStatus(false);
+      setUserAuthStatus(false);
     }
   });
 
@@ -34,11 +34,11 @@ function App() {
   return <>
 
 <div className="title">
-<h4>Todo App With Firebase Login And FireStore - Welcome {signedIn ? userFirebase.email:"Guest"}</h4>
-{signedIn ? <img src={userFirebase.photoURL} />:''}
+<h4>Todo App With Firebase Login And FireStore - Welcome {userSignedIn ? userFirebase.email:"Guest"}</h4>
+{userSignedIn ? <img src={userFirebase.photoURL} />:''}
 <button onClick={Firebase.Logout}>Logout</button>
 </div>
-{signedIn ? "Welcome ;D":<Login/>}
+{userSignedIn ? "Welcome ;D":<Login/>}
 
 
   </>
