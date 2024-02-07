@@ -1,11 +1,11 @@
-import firebase from 'firebase/app';
-import 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword, signOut, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import firebaseApp from '../firebase/credentials'; // replace with the path to your app file
 
-const auth = firebase.auth();
+const auth = getAuth(firebaseApp);
 
 export const FirebaseLogin = async (email, password) => {
   try {
-    await auth.signInWithEmailAndPassword(email, password);
+    await signInWithEmailAndPassword(auth, email, password);
   } catch (error) {
     console.error("Error signing in with password and email", error);
   }
@@ -13,7 +13,7 @@ export const FirebaseLogin = async (email, password) => {
 
 export const FirebaseLogout = async () => {
   try {
-    await auth.signOut();
+    await signOut(auth);
   } catch (error) {
     console.error("Error signing out", error);
   }
@@ -21,7 +21,7 @@ export const FirebaseLogout = async () => {
 
 export const FirebaseRegister = async (email, password) => {
   try {
-    await auth.createUserWithEmailAndPassword(email, password);
+    await createUserWithEmailAndPassword(auth, email, password);
   } catch (error) {
     console.error("Error signing up with password and email", error);
   }
@@ -29,8 +29,8 @@ export const FirebaseRegister = async (email, password) => {
 
 export const FirebaseGoogleLogin = async () => {
   try {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    await auth.signInWithPopup(provider);
+    const provider = new GoogleAuthProvider();
+    await signInWithPopup(auth, provider);
   } catch (error) {
     console.error("Error signing in with Google", error);
   }
