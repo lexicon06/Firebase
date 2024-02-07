@@ -36,6 +36,4 @@ export const FirebaseGoogleLogin = async () => {
   }
 };
 
-//export default { FirebaseLogin, FirebaseLogout, FirebaseRegister, FirebaseGoogleLogin };
-
 export default { Login: FirebaseLogin, Logout: FirebaseLogout, Register: FirebaseRegister, GoogleLogin: FirebaseGoogleLogin };

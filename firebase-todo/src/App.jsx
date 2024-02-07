@@ -3,6 +3,7 @@ import Login from './Views/Login';
 import "./App.css";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Firebase from './functions/loginActions';
+import TodoPanel from './Views/TodoPanel';
 
 function App() {
 
@@ -30,7 +31,7 @@ function App() {
 {userSignedIn ? <img src={userFirebase.photoURL} />:''}
 <button onClick={Firebase.Logout}>Logout</button>
 </div>
-{userSignedIn ? "Welcome ;D":<Login/>}
+{userSignedIn ? <TodoPanel userFirebase={userFirebase}/>:<Login/>}
 
 
   </>
