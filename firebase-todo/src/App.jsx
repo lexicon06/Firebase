@@ -16,14 +16,6 @@ function App() {
       
       setUserInfo(user);
 
-      /* this is what i used to collect but then i realize, that it was better to collect all for later usage.
-
-      const uid = user.uid;
-      const photoUrl = user.photoURL;
-      const email = user.email;
-
-      */
-
       if(!userSignedIn) setUserAuthStatus(true);
     } else {
       setUserAuthStatus(false);
