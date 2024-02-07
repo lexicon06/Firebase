@@ -1,5 +1,5 @@
 import { getAuth, signInWithEmailAndPassword, signOut, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import firebaseApp from '../firebase/credentials'; // replace with the path to your app file
+import firebaseApp from '../firebase/credentials';
 
 const auth = getAuth(firebaseApp);
 
