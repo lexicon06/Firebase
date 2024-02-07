@@ -27,7 +27,7 @@ async function getTodoElements(id = "nothing") {
       collectionRef = query(collectionRef, where("user", "==", id));
     }
     const snapshot = await getDocs(collectionRef);
-    return snapshot.docs.map((doc) => doc.data());
+    return snapshot.docs.map((doc) => ({fsid: doc.id, data: doc.data()}));
   } catch (error) {
     console.error("Error getting documents: ", error);
   }

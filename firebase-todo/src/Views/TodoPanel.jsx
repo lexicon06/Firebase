@@ -34,7 +34,7 @@ function TodoPanel({userFirebase}) {
     <div className="dbContainer">
     {todos.map((todo, index) => (
         <div key={index}>
-            User: {todo.user}, Item: {todo.item}
+            User: {todo.data.user}, Item: {todo.data.item}, Id: {todo.fsid}
         </div>
     ))}
 </div>

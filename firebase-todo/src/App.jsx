@@ -28,10 +28,10 @@ function App() {
 
 <div className="title">
 <h4>Todo App With Firebase Login And FireStore - Welcome {userSignedIn ? userFirebase.email:"Guest"}</h4>
-{userSignedIn ? <img src={userFirebase.photoURL} />:''}
+{userSignedIn ? <img src={userFirebase.photoURL ?? "https://www.gstatic.com/mobilesdk/160503_mobilesdk/logo/2x/firebase_28dp.png"} />:''}
 <button onClick={Firebase.Logout}>Logout</button>
 </div>
-{userSignedIn ? <TodoPanel userFirebase={userFirebase}/>:<Login/>}
+{userSignedIn ? <TodoPanel user={userFirebase}/>:<Login/>}
 
 
   </>
