@@ -1,4 +1,4 @@
-import {auth} from "../Firebase/Credentials";
+import {auth} from "../firebase/credentials";
 
 const logoutUser = async() => {
     await signOut(auth).then(()=>{
