@@ -31,7 +31,7 @@ function App() {
 <h4>Todo App With Firebase Login And FireStore - Welcome {signedIn ? "User":"Guest"}</h4>
 <button onClick={FirebaseLogout}>Logout</button>
 </div>
-<Login/>
+{signedIn ? "Welcome ;D":<Login/>}
 
 
   </>

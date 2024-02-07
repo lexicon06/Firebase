@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "./Login.css";
-import {FirebaseLogin, FirebaseRegister} from '../functions/loginActions';
+import {FirebaseLogin, FirebaseRegister, FirebaseGoogleLogin} from '../functions/loginActions';
 
 function Login() {
     const [isRegister, setIsRegister] = useState(true);
@@ -29,7 +29,7 @@ function Login() {
                     <label htmlFor="password">Password</label>
                     <input type="password" id="password" name="password" />
                     <button type="submit">Let's go!</button>
-                    <button className="googleButton" type="submit">Log in With Google</button>
+                    <button className="googleButton" onClick={FirebaseGoogleLogin}>Log in With Google</button>
                 </div>
                 <div className="captionRegister" onClick={() => setIsRegister(!isRegister)}>
                     {isRegister ? "Already a Member? Sign In" : "Not a Member? Register"}
