@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "./Login.css";
-import {FirebaseLogin, FirebaseRegister, FirebaseGoogleLogin} from '../functions/loginActions';
+import Firebase from '../functions/loginActions';
 
 function Login() {
     const [isRegister, setIsRegister] = useState(true);
@@ -11,10 +11,10 @@ function Login() {
         const password = e.target.elements.password.value;
 
         if (isRegister) {
-            await FirebaseRegister(user, password);
+            await Firebase.Register(user, password);
         } else {
            // await loginUserWithEmailAndPassword(user, password);
-           await FirebaseLogin(user,password);
+           await Firebase.Login(user,password);
         }
         e.target.reset();
     }
@@ -29,7 +29,7 @@ function Login() {
                     <label htmlFor="password">Password</label>
                     <input type="password" id="password" name="password" />
                     <button type="submit">Let's go!</button>
-                    <button className="googleButton" onClick={FirebaseGoogleLogin}>Log in With Google</button>
+                    <button className="googleButton" onClick={Firebase.GoogleLogin}>Log in With Google</button>
                 </div>
                 <div className="captionRegister" onClick={() => setIsRegister(!isRegister)}>
                     {isRegister ? "Already a Member? Sign In" : "Not a Member? Register"}
