@@ -31,7 +31,7 @@ function App() {
 {userSignedIn ? <img src={userFirebase.photoURL ?? "https://www.gstatic.com/mobilesdk/160503_mobilesdk/logo/2x/firebase_28dp.png"} />:''}
 <button onClick={Firebase.Logout}>Logout</button>
 </div>
-{userSignedIn ? <TodoPanel user={userFirebase}/>:<Login/>}
+{userSignedIn ? <TodoPanel userFirebase={userFirebase}/>:<Login/>}
 
 
   </>
