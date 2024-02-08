@@ -17,7 +17,7 @@ function TodoPanel({userFirebase}) {
 
     async function formHandler(e){
         e.preventDefault();
-        const data = e.target.elements.todo.value;
+        const data = e.target.todo.value;
         await Firestore.Create({item: data, user:userFirebase.email});
         e.target.reset();
     }

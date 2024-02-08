@@ -7,8 +7,8 @@ function Login() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const user = e.target.elements.email.value;
-        const password = e.target.elements.password.value;
+        const user = e.target.email.value;
+        const password = e.target.password.value;
 
         if (Registration) {
             await Firebase.Register(user, password);
