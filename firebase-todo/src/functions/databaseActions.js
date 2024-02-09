@@ -36,7 +36,7 @@ async function getTodoElements(id = "nothing") {
 async function updateTodoElement(id, data) {
   try {
     const docRef = doc(db, "todo", id);
-    await updateDoc(docRef, data);
+    await updateDoc(docRef, data);//or setdoc with merge true
   } catch (error) {
     console.error("Error updating document: ", error);
   }
