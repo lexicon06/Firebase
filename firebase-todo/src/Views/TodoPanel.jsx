@@ -10,11 +10,12 @@ function TodoPanel({ userFirebase }) {
     const [data, setData] = React.useState({});
     const [delEl, setDel] = React.useState('');
 
+    async function fetchData() {
+        const data = await Firestore.Read(userFirebase.email);
+        setTodos(data);
+    }
+
     React.useEffect(() => {
-        async function fetchData() {
-            const data = await Firestore.Read(userFirebase.email);
-            setTodos(data);
-        }
         fetchData();
     }, [update]);
 
@@ -51,8 +52,8 @@ function TodoPanel({ userFirebase }) {
             </div>
             <div className="dbContainer">
 
-                <EditElement prop={data} />
-                <DeleteElement id={delEl} />
+                <EditElement prop={data} refresh={fetchData} />
+                <DeleteElement id={delEl} refresh={fetchData} />
 
 
                 <form action="">

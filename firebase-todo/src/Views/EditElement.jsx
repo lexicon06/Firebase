@@ -1,7 +1,7 @@
 import React from 'react';
 import Firestore from "../functions/databaseActions";
 
-function EditElement({ prop }) {
+function EditElement({ prop, refresh }) {
 
 
 
@@ -23,9 +23,8 @@ function EditElement({ prop }) {
 
         if (Object.keys(updates).length > 0) {
             await Firestore.Update(id, updates);
+            refresh();
         }
-
-        alert(`Received ${name}, ${item}, ${id}`);
     }
 
     return (
