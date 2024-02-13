@@ -47,8 +47,10 @@ async function deleteTodoElement(id) {
   try {
     const docRef = doc(db, "todo", id);
     await deleteDoc(docRef);
+    alert("Deleted ok");
   } catch (error) {
     console.error("Error deleting document: ", error);
+    alert("Deleted failed");
   }
 }
 

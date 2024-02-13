@@ -1,4 +1,12 @@
 import React from 'react'
+import Firestore from "../functions/databaseActions";
+
+async function deleteElement(id){
+
+    await Firestore.Delete(id);
+    document.getElementById("deleteModal").close();
+
+}
 
 function DeleteElement({ id }) {
     return (
@@ -7,7 +15,7 @@ function DeleteElement({ id }) {
             <button onClick={
                 (e) => {
                 e.preventDefault();
-                alert(`Deleted ${id}`);
+                deleteElement(id);
             }}>Yes</button>
             <button onClick={
                 (e) => {
